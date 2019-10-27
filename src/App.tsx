@@ -6,7 +6,7 @@ import axios from 'axios';
 type UploadState = {
     trainFile?: Blob
     testFile?: Blob
-    trainingJobId?: string
+    modelId?: string
     trainLoaded: 0
     testLoaded: 0
 }
@@ -45,7 +45,7 @@ export class App extends Component<{}, UploadState> {
             .then(res => {
                 console.log(JSON.stringify(res));
                 this.setState({
-                    trainingJobId: res.data.id
+                    modelId: res.data.id
                 });
             })
     };
@@ -53,7 +53,7 @@ export class App extends Component<{}, UploadState> {
     uploadTest = () => {
         const data = new FormData();
         data.append('file', this.state.testFile!);
-        axios.post("http://localhost:8080/predict?trainingJobId=" + this.state.trainingJobId, data, {})
+        axios.post("http://localhost:8080/predict?modelId=" + this.state.modelId, data, {})
             .then(res => {
                 console.log(JSON.stringify(res));
             })
