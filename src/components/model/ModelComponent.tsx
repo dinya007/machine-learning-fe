@@ -1,7 +1,9 @@
 import React, {Component} from "react";
 import {RouteComponentProps} from "react-router";
 import {Prediction} from "../../types/Prediction";
-import {Link} from "react-router-dom";
+import {AddButtonComponent} from "../buttons/AddButtonComponent";
+import {DownloadButtonComponent} from "../buttons/DownloadButtonComponent";
+import {StatusComponent} from "../buttons/StatusComponent";
 
 type RouteParams = {
     datasetId: string
@@ -42,25 +44,19 @@ export class ModelComponent extends Component<RouteComponentProps<RouteParams> &
         return (
             <div className="container">
                 <div className='row'>
-                    <div className="col-8 text-center">
+                    <div className="col-12 text-center">
                         <h2>Predictions</h2>
-                    </div>
-                    <div className="col-4 text-center">
-                        <Link to={`/datasets/${this.state.datasetId}/models/${this.state.modelId}/predictions/new`}>
-                            <button>New</button>
-                        </Link>
                     </div>
                 </div>
                 <div className="row">
-                    <table className="table">
-                        <thead>
+                    <table className="table table-striped table-bordered text-center">
+                        <thead className="thead-dark">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">ID</th>
                             <th scope="col">Status</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                            {/*<th scope="col"></th>*/}
+                            <th scope="col">Input data</th>
+                            <th scope="col">Result</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -69,17 +65,23 @@ export class ModelComponent extends Component<RouteComponentProps<RouteParams> &
                                 return (<tr>
                                     <th scope="row">{index}</th>
                                     <td>{prediction.id}</td>
-                                    <td>{prediction.status}</td>
-                                    <td><a href={`http://localhost:8080/predictions/${prediction.id}/downloadData`}
-                                           target='_blank' rel='noopener noreferrer'>Download input data</a></td>
-                                    <td><a href={`http://localhost:8080/predictions/${prediction.id}/downloadResult`}
-                                           target='_blank' rel='noopener noreferrer'>Download predictions</a></td>
+                                    <td><StatusComponent status={prediction.status.toString()}/></td>
+                                    <td>
+                                        <DownloadButtonComponent
+                                            downloadLink={`http://localhost:8080/predictions/${prediction.id}/downloadData`}/>
+                                    </td>
+                                    <td>
+                                        <DownloadButtonComponent
+                                            downloadLink={`http://localhost:8080/predictions/${prediction.id}/downloadResult`}/>
+                                    </td>
                                 </tr>);
                             })
                         }
                         </tbody>
                     </table>
                 </div>
+                <AddButtonComponent
+                    redirectLink={`/datasets/${this.state.datasetId}/models/${this.state.modelId}/predictions/new`}/>
             </div>
         );
     }

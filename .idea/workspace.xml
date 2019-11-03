@@ -1,9 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="20f13873-23e7-485a-9971-5784bf731ac3" name="Default Changelist" comment="working example">
+      <change afterPath="$PROJECT_DIR$/src/components/buttons/AddButtonComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/buttons/DownloadButtonComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/buttons/StatusComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Upload.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/upload.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dataset/DatasetsComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dataset/DatasetsComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/model/DatasetComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/model/DatasetComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/model/ModelComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/model/ModelComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
   <component name="ProjectId" id="1SVo7xz0GOf2WlOxxgqGgfUbMES" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/buttons" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/buttons" />
+      <recent name="$PROJECT_DIR$/src/components/prediction" />
+      <recent name="$PROJECT_DIR$/src/components/model" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/model" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.npm start">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="20f13873-23e7-485a-9971-5784bf731ac3" name="Default Changelist" comment="" />
+      <created>1571657960832</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571657960832</updated>
+      <workItem from="1571657963954" duration="273000" />
+      <workItem from="1571658969286" duration="374000" />
+      <workItem from="1571729802945" duration="1423000" />
+      <workItem from="1572179965496" duration="3222000" />
+      <workItem from="1572197508150" duration="579000" />
+      <workItem from="1572202692264" duration="2119000" />
+      <workItem from="1572349318990" duration="1106000" />
+      <workItem from="1572376964227" duration="3500000" />
+      <workItem from="1572424063422" duration="2193000" />
+      <workItem from="1572463694345" duration="1780000" />
+      <workItem from="1572541832016" duration="200000" />
+      <workItem from="1572609728594" duration="1907000" />
+      <workItem from="1572636199014" duration="1879000" />
+      <workItem from="1572798594276" duration="5816000" />
+    </task>
+    <task id="LOCAL-00001" summary="working example">
+      <created>1572186645516</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572186645516</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update parameter id">
+      <created>1572206070358</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1572206070359</updated>
+    </task>
+    <task id="LOCAL-00003" summary="uploading and downloading">
+      <created>1572640415064</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1572640415064</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="working example" />
+    <MESSAGE value="update parameter id" />
+    <MESSAGE value="uploading and downloading" />
+    <option name="LAST_COMMIT_MESSAGE" value="uploading and downloading" />
   </component>
 </project>

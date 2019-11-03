@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Dataset} from "../../types/Dataset";
 import {Link} from "react-router-dom";
+import {AddButtonComponent} from "../buttons/AddButtonComponent";
+import {DownloadButtonComponent} from "../buttons/DownloadButtonComponent";
 
 type State = {
     predictions: Array<Dataset>
@@ -31,23 +33,18 @@ export class DatasetsComponent extends Component<{}, State> {
         return (
             <div className="container">
                 <div className='row'>
-                    <div className="col-8 text-center">
+                    <div className="col-12 text-center">
                         <h2>Datasets</h2>
-                    </div>
-                    <div className="col-4 text-center">
-                        <Link to='/datasets/new'>
-                            <button>New</button>
-                        </Link>
                     </div>
                 </div>
                 <div className="row">
-                    <table className="table">
-                        <thead>
+                    <table className="table table-striped table-bordered text-center">
+                        <thead className="thead-dark">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">ID</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
+                            <th scope="col">Input data</th>
+                            <th scope="col">Details</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -56,15 +53,18 @@ export class DatasetsComponent extends Component<{}, State> {
                                 return (<tr>
                                     <th scope="row">{index}</th>
                                     <td>{dataset.id}</td>
-                                    <td><a href={`http://localhost:8080/datasets/${dataset.id}/downloadData`}
-                                           target='_blank' rel='noopener noreferrer'>Download input data</a></td>
-                                    <td><Link to={`/datasets/${dataset.id}`}>View details</Link></td>
+                                    <td>
+                                        <DownloadButtonComponent
+                                            downloadLink={`http://localhost:8080/datasets/${dataset.id}/downloadData`}/>
+                                    </td>
+                                    <td><Link to={`/datasets/${dataset.id}`}>View</Link></td>
                                 </tr>);
                             })
                         }
                         </tbody>
                     </table>
                 </div>
+                <AddButtonComponent redirectLink='/datasets/new'/>
             </div>
         );
     }

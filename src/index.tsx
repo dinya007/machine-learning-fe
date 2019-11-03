@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './style.css';
+import './upload.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-material-design/dist/css/bootstrap-material-design.min.css';
+import 'bootstrap-material-design-icons/css/material-icons.min.css';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

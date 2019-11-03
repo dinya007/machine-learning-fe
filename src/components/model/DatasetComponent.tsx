@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Link, RouteComponentProps} from "react-router-dom";
 import {Model} from "../../types/Model";
+import {StatusComponent} from "../buttons/StatusComponent";
 
 type RouteParams = {
     datasetId: string
@@ -38,18 +39,18 @@ export class DatasetComponent extends Component<RouteComponentProps<RouteParams>
         return (
             <div className="container">
                 <div className='row'>
-                    <div className="col-8 text-center">
+                    <div className="col-12 text-center">
                         <h2>Models</h2>
                     </div>
                 </div>
                 <div className="row">
-                    <table className="table">
-                        <thead>
+                    <table className="table table-striped table-bordered text-center">
+                        <thead className="thead-dark">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">ID</th>
                             <th scope="col">Status</th>
-                            <th scope="col"></th>
+                            <th scope="col">Details</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -58,8 +59,9 @@ export class DatasetComponent extends Component<RouteComponentProps<RouteParams>
                                 return (<tr>
                                     <th scope="row">{index}</th>
                                     <td>{model.id}</td>
-                                    <td>{model.status}</td>
-                                    <td><Link to={`/datasets/${this.state.datasetId}/models/${model.id}`}>View model</Link></td>
+                                    <td><StatusComponent status={model.status.toString()}/></td>
+                                    <td><Link to={`/datasets/${this.state.datasetId}/models/${model.id}`}>View</Link>
+                                    </td>
                                 </tr>);
                             })
                         }
