@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Link, RouteComponentProps} from "react-router-dom";
-import {Model} from "../../types/Model";
+import {Model, ModelStatus} from "../../types/Model";
 import {StatusComponent} from "../buttons/StatusComponent";
 
 type RouteParams = {
@@ -60,7 +60,9 @@ export class DatasetComponent extends Component<RouteComponentProps<RouteParams>
                                     <th scope="row">{index}</th>
                                     <td>{model.id}</td>
                                     <td><StatusComponent status={model.status.toString()}/></td>
-                                    <td><Link to={`/datasets/${this.state.datasetId}/models/${model.id}`}>View</Link>
+                                    <td>{model.status.toString() === ModelStatus[ModelStatus.SUCCESS] ?
+                                        <Link
+                                            to={`/datasets/${this.state.datasetId}/models/${model.id}`}>View</Link> : null}
                                     </td>
                                 </tr>);
                             })

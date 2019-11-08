@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {RouteComponentProps} from "react-router";
-import {Prediction} from "../../types/Prediction";
+import {Prediction, PredictionStatus} from "../../types/Prediction";
 import {AddButtonComponent} from "../buttons/AddButtonComponent";
 import {DownloadButtonComponent} from "../buttons/DownloadButtonComponent";
 import {StatusComponent} from "../buttons/StatusComponent";
@@ -68,10 +68,12 @@ export class ModelComponent extends Component<RouteComponentProps<RouteParams> &
                                     <td><StatusComponent status={prediction.status.toString()}/></td>
                                     <td>
                                         <DownloadButtonComponent
+                                            hidden={false}
                                             downloadLink={`http://localhost:8080/predictions/${prediction.id}/downloadData`}/>
                                     </td>
                                     <td>
                                         <DownloadButtonComponent
+                                            hidden={prediction.status.toString() !== PredictionStatus[PredictionStatus.SUCCESS]}
                                             downloadLink={`http://localhost:8080/predictions/${prediction.id}/downloadResult`}/>
                                     </td>
                                 </tr>);
@@ -81,7 +83,8 @@ export class ModelComponent extends Component<RouteComponentProps<RouteParams> &
                     </table>
                 </div>
                 <AddButtonComponent
-                    redirectLink={`/datasets/${this.state.datasetId}/models/${this.state.modelId}/predictions/new`}/>
+                    redirectLink={`/datasets/${this.state.datasetId}/models/${this.state.modelId}/predictions/new`}
+                    hidden={false}/>
             </div>
         );
     }

@@ -55,6 +55,7 @@ export class DatasetsComponent extends Component<{}, State> {
                                     <td>{dataset.id}</td>
                                     <td>
                                         <DownloadButtonComponent
+                                            hidden={false}
                                             downloadLink={`http://localhost:8080/datasets/${dataset.id}/downloadData`}/>
                                     </td>
                                     <td><Link to={`/datasets/${dataset.id}`}>View</Link></td>
@@ -64,7 +65,7 @@ export class DatasetsComponent extends Component<{}, State> {
                         </tbody>
                     </table>
                 </div>
-                <AddButtonComponent redirectLink='/datasets/new'/>
+                <AddButtonComponent redirectLink='/datasets/new' hidden={false}/>
             </div>
         );
     }
