@@ -3,6 +3,7 @@ import {Dataset} from "../../types/Dataset";
 import {Link} from "react-router-dom";
 import {AddButtonComponent} from "../buttons/AddButtonComponent";
 import {DownloadButtonComponent} from "../buttons/DownloadButtonComponent";
+import {StatusComponent} from "../buttons/StatusComponent";
 
 type State = {
     predictions: Array<Dataset>
@@ -43,6 +44,7 @@ export class DatasetsComponent extends Component<{}, State> {
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">ID</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Input data</th>
                             <th scope="col">Details</th>
                         </tr>
@@ -53,6 +55,7 @@ export class DatasetsComponent extends Component<{}, State> {
                                 return (<tr>
                                     <th scope="row">{index}</th>
                                     <td>{dataset.id}</td>
+                                    <td><StatusComponent status={dataset.status.toString()}/></td>
                                     <td>
                                         <DownloadButtonComponent
                                             hidden={false}

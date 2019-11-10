@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import {Link, RouteComponentProps} from "react-router-dom";
 import {Model, ModelStatus} from "../../types/Model";
 import {StatusComponent} from "../buttons/StatusComponent";
+import Chart from "react-google-charts";
+import {AddButtonComponent} from "../buttons/AddButtonComponent";
 
 type RouteParams = {
     datasetId: string
@@ -69,7 +71,36 @@ export class DatasetComponent extends Component<RouteComponentProps<RouteParams>
                         }
                         </tbody>
                     </table>
+                    <Chart
+                        chartType="ScatterChart"
+                        rows={[[8, 12], [4, 5.5], [11, 14], [4, 5], [3, 3.5], [6.5, 7]]}
+                        columns={[
+                            {
+                                type: "number",
+                                label: "Age"
+                            },
+                            {
+                                type: "number",
+                                label: "Weight"
+                            }
+                        ]}
+                        options={
+                            {
+                                title: "Age vs. Weight comparison",
+                                hAxis: {
+                                    title: "Age",
+                                    viewWindow: { min: 0, max: 15 }
+                                },
+                                vAxis: { title: "Weight", viewWindow: { min: 0, max: 15 } },
+                                legend: "none"
+                            }
+                        }
+                        width={"100%"}
+                        height={"400px"}
+                        legendToggle
+                    />
                 </div>
+                <AddButtonComponent redirectLink={`/datasets/${this.state.datasetId}/models/new`} hidden={false}/>
             </div>
         );
     }

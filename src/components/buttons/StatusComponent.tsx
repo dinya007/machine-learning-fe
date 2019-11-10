@@ -9,10 +9,14 @@ export class StatusComponent extends Component<Props, {}> {
 
     render() {
         switch (this.props.status) {
-            case 'SUCCESS':
-                return this.success();
             case 'STARTED':
                 return this.started();
+            case 'CREATED':
+                return this.started();
+            case 'SUCCESS':
+                return this.success();
+            case 'ANALYZED':
+                return this.success();
             case 'ERROR':
                 return this.error();
         }

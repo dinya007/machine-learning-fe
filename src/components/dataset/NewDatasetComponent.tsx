@@ -25,9 +25,9 @@ export class NewDatasetForm extends Component<RouteComponentProps, State> {
     uploadTrain = () => {
         const data = new FormData();
         data.append('file', this.state.trainFile!);
-        axios.post("http://localhost:8080/models/train", data, {})
+        axios.post("http://localhost:8080/datasets/create", data, {})
             .then(res => {
-                this.props.history.push(`/datasets/${res.data.datasetId}`)
+                this.props.history.push(`/datasets`)
             }).catch(error => {
             alert(JSON.stringify(error));
         })

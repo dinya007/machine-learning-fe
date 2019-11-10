@@ -6,6 +6,7 @@ import {ModelComponent} from "./components/model/ModelComponent";
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import {NewDatasetForm} from "./components/dataset/NewDatasetComponent";
 import {NewPredictionForm} from "./components/prediction/NewPredictionComponent";
+import {NewModelComponent} from "./components/model/NewModelComponent";
 
 // https://reacttraining.com/react-router/web/guides/quick-start
 
@@ -39,6 +40,7 @@ export class App extends Component<{}, {}> {
                         <Route exact path="/datasets" component={DatasetsComponent}/>
                         <Route exact path="/datasets/new" component={NewDatasetForm}/>
                         <Route exact path="/datasets/:datasetId" component={DatasetComponent}/>
+                        <Route exact path="/datasets/:datasetId/models/new" component={NewModelComponent}/>
                         <Route exact path="/datasets/:datasetId/models/:modelId" component={ModelComponent}/>
                         <Route exact path="/datasets/:datasetId/models/:modelId/predictions/new"
                                component={NewPredictionForm}/>
