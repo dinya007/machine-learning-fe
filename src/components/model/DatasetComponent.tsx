@@ -2,8 +2,11 @@ import React, {Component} from "react";
 import {Link, RouteComponentProps} from "react-router-dom";
 import {Model, ModelStatus} from "../../types/Model";
 import {StatusComponent} from "../buttons/StatusComponent";
-import Chart from "react-google-charts";
 import {AddButtonComponent} from "../buttons/AddButtonComponent";
+import {DatasetAnalyze} from "../../types/DatasetAnalyze";
+import {CategoricalChartsComponent} from "./CategoricalChartsComponent";
+import {NumericalChartsComponent} from "./NumericalChartsComponent";
+import Collapse from "react-collapse";
 
 type RouteParams = {
     datasetId: string
@@ -12,6 +15,7 @@ type RouteParams = {
 type State = {
     datasetId: String
     models: Array<Model>
+    datasetAnalyze?: DatasetAnalyze
 };
 
 export class DatasetComponent extends Component<RouteComponentProps<RouteParams> & {}, State> {
@@ -20,7 +24,8 @@ export class DatasetComponent extends Component<RouteComponentProps<RouteParams>
         super(props);
         this.state = {
             datasetId: props.match.params.datasetId,
-            models: []
+            models: [],
+            datasetAnalyze: undefined
         };
     }
 
@@ -28,9 +33,17 @@ export class DatasetComponent extends Component<RouteComponentProps<RouteParams>
         fetch(`http://localhost:8080/models/datasetId/${this.state.datasetId}`)
             .then(res => res.json())
             .then((data) => {
-                console.log(JSON.stringify(data));
                 this.setState({
                     models: data
+                });
+            })
+            .catch(console.log)
+
+        fetch(`http://localhost:8080/datasets/${this.state.datasetId}/featureAnalyse`)
+            .then(res => res.json())
+            .then((data) => {
+                this.setState({
+                    datasetAnalyze: data
                 });
             })
             .catch(console.log)
@@ -71,35 +84,17 @@ export class DatasetComponent extends Component<RouteComponentProps<RouteParams>
                         }
                         </tbody>
                     </table>
-                    <Chart
-                        chartType="ScatterChart"
-                        rows={[[8, 12], [4, 5.5], [11, 14], [4, 5], [3, 3.5], [6.5, 7]]}
-                        columns={[
-                            {
-                                type: "number",
-                                label: "Age"
-                            },
-                            {
-                                type: "number",
-                                label: "Weight"
-                            }
-                        ]}
-                        options={
-                            {
-                                title: "Age vs. Weight comparison",
-                                hAxis: {
-                                    title: "Age",
-                                    viewWindow: { min: 0, max: 15 }
-                                },
-                                vAxis: { title: "Weight", viewWindow: { min: 0, max: 15 } },
-                                legend: "none"
-                            }
-                        }
-                        width={"100%"}
-                        height={"400px"}
-                        legendToggle
-                    />
                 </div>
+
+                {
+                    this.state.datasetAnalyze === undefined ? null :
+                            <CategoricalChartsComponent categorical={this.state.datasetAnalyze.categorical}/>
+                }
+                {
+                    this.state.datasetAnalyze === undefined ? null :
+                        <NumericalChartsComponent numerical={this.state.datasetAnalyze.numerical}/>
+
+                }
                 <AddButtonComponent redirectLink={`/datasets/${this.state.datasetId}/models/new`} hidden={false}/>
             </div>
         );
