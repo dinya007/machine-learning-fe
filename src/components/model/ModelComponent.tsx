@@ -55,6 +55,7 @@ export class ModelComponent extends Component<RouteComponentProps<RouteParams> &
                             <th scope="col">#</th>
                             <th scope="col">ID</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Type</th>
                             <th scope="col">Input data</th>
                             <th scope="col">Result</th>
                         </tr>

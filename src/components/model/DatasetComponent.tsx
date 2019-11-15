@@ -6,7 +6,7 @@ import {AddButtonComponent} from "../buttons/AddButtonComponent";
 import {DatasetAnalyze} from "../../types/DatasetAnalyze";
 import {CategoricalChartsComponent} from "./CategoricalChartsComponent";
 import {NumericalChartsComponent} from "./NumericalChartsComponent";
-import Collapse from "react-collapse";
+import {NumberUtils} from "../../utils/NumberUtils";
 
 type RouteParams = {
     datasetId: string
@@ -65,6 +65,10 @@ export class DatasetComponent extends Component<RouteComponentProps<RouteParams>
                             <th scope="col">#</th>
                             <th scope="col">ID</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Algorithm</th>
+                            <th scope="col">Mean</th>
+                            <th scope="col">Standard deviation</th>
                             <th scope="col">Details</th>
                         </tr>
                         </thead>
@@ -75,6 +79,10 @@ export class DatasetComponent extends Component<RouteComponentProps<RouteParams>
                                     <th scope="row">{index}</th>
                                     <td>{model.id}</td>
                                     <td><StatusComponent status={model.status.toString()}/></td>
+                                    <td>{model.type}</td>
+                                    <td>{model.algorithm}</td>
+                                    <td>{NumberUtils.round(model.mean, 3)}</td>
+                                    <td>{NumberUtils.round(model.std, 4)}</td>
                                     <td>{model.status.toString() === ModelStatus[ModelStatus.SUCCESS] ?
                                         <Link
                                             to={`/datasets/${this.state.datasetId}/models/${model.id}`}>View</Link> : null}
@@ -88,7 +96,7 @@ export class DatasetComponent extends Component<RouteComponentProps<RouteParams>
 
                 {
                     this.state.datasetAnalyze === undefined ? null :
-                            <CategoricalChartsComponent categorical={this.state.datasetAnalyze.categorical}/>
+                        <CategoricalChartsComponent categorical={this.state.datasetAnalyze.categorical}/>
                 }
                 {
                     this.state.datasetAnalyze === undefined ? null :
